@@ -11,7 +11,7 @@
   
   **Add the dependency**
   
-  implementation 'com.github.veenkumar:veenliby:2.1.4'
+  	implementation 'com.github.veenkumar:veenliby:2.1.4'
   
   **Manifest file add**
   
@@ -19,8 +19,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
  **Camera & Gallery Code**
-  
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+ 
+ 	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
                     )
@@ -32,16 +32,16 @@
                     )
                     requestPermissions(permission, 121)
                 } else {
-                    openCamera()
-//                    openGallery()
+//                    openCamera()
+                    openGallery()
                 }
             } else {
                 Toast.makeText(applicationContext, "permission denied", Toast.LENGTH_SHORT).show()
             }
             true
         })
-	
-	    private fun openGallery() {
+
+private fun openGallery() {
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE)
     }
