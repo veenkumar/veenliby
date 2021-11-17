@@ -32,7 +32,7 @@
                     )
                     requestPermissions(permission, 121)
                 } else {
-//                    openCamera()
+                    openCamera()
                     openGallery()
                 }
             } else {
