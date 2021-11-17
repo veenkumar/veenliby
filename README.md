@@ -11,7 +11,7 @@
   
   **Add the dependency**
   
-  	implementation 'com.github.veenkumar:veenliby:2.1.4'
+  	implementation 'com.github.veenkumar:veenliby:2.1.5'
   
   **Manifest file add**
   
