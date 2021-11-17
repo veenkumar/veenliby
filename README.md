@@ -20,6 +20,10 @@
     
  **Camera & Gallery Code**
  
+ 	var image_uri: Uri? = null
+	val RESULT_LOAD_IMAGE = 123
+	val IMAGE_CAPTURE_CODE = 654
+
  	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
