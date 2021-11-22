@@ -96,8 +96,8 @@
             Toast.makeText(applicationContext, "permission denied", Toast.LENGTH_SHORT).show()
         }
 	
-	    private fun openGallery() {
-        if (Build.VERSION.SDK_INT < 19) {
+	private fun openGallery() {
+          if (Build.VERSION.SDK_INT < 19) {
             var intent = Intent()
             intent.type = "image/*"
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
