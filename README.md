@@ -70,3 +70,59 @@
             binding.imageView.setImageURI(image_uri)
         }
     }
+    
+   **Gallery Multiple Image Code**
+   
+    var image_uri: Uri? = null
+    val RESULT_LOAD_IMAGE = 123
+    val IMAGE_CAPTURE_CODE = 654
+    var imagesPathList: MutableList<String> = arrayListOf()
+    
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                == PackageManager.PERMISSION_DENIED
+            ) {
+                val permission = arrayOf(
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                requestPermissions(permission, 121)
+            } else {
+                openGallery()
+            }
+        } else {
+            Toast.makeText(applicationContext, "permission denied", Toast.LENGTH_SHORT).show()
+        }
+	
+	    private fun openGallery() {
+        if (Build.VERSION.SDK_INT < 19) {
+            var intent = Intent()
+            intent.type = "image/*"
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(
+                Intent.createChooser(intent, "Select Picture")
+                , RESULT_LOAD_IMAGE
+            )
+        } else {
+            var intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type = "image/*"
+            startActivityForResult(intent, RESULT_LOAD_IMAGE);
+        }
+    }
+    
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == IMAGE_CAPTURE_CODE && resultCode == Activity.RESULT_OK) {
+            imagesPathList.add(image_uri.toString())
+        }
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+            image_uri = data.data
+            val test  = imagesPathList.add(image_uri.toString())
+            Log.d("TAG", "onActivityResult: $test")
+        }
+    }
