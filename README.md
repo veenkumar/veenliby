@@ -72,6 +72,7 @@
     }
     
    **Gallery Multiple Image Code**
+   
     var image_uri: Uri? = null
     var imagePath: String = ""
     val RESULT_LOAD_IMAGE = 123
