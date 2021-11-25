@@ -20,8 +20,6 @@ abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope 
     protected lateinit var binding: B
         private set
 
-    protected var snackbar: Snackbar? = null
-
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> B
 
     override fun onCreateView(
@@ -29,16 +27,8 @@ abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val networkConnection = NetworkConnection(requireContext())
-        networkConnection.observe(this, Observer { isConnected ->
-            if (isConnected) {
-                snackbar?.dismiss()
-                binding = bindingInflater.invoke(inflater, container, false)
-            } else {
-                snackbar = CommonUtils.indefiniteSnack(requireContext(), "")
-            }
-
-        })
+        binding = bindingInflater.invoke(inflater, container, false)
+        
         return binding.root
     }
 
