@@ -17,7 +17,7 @@ abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope 
     Dispatchers.Main
 ) {
 
-    protected lateinit var views: B
+    protected lateinit var binding: B
         private set
 
     protected var snackbar: Snackbar? = null
@@ -28,18 +28,18 @@ abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope 
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         val networkConnection = NetworkConnection(requireContext())
         networkConnection.observe(this, Observer { isConnected ->
             if (isConnected) {
                 snackbar?.dismiss()
-                views = bindingInflater.invoke(inflater, container, false)
+                binding = bindingInflater.invoke(inflater, container, false)
             } else {
                 snackbar = CommonUtils.indefiniteSnack(requireContext(), "")
             }
 
         })
-        return views.root
+        return binding.root
     }
 
     override fun onDestroyView() {
