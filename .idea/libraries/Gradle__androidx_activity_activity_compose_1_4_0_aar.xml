@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.activity:activity-compose:1.4.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9487832b4839791ef910619a3303b054/transformed/jetified-activity-compose-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9487832b4839791ef910619a3303b054/transformed/jetified-activity-compose-1.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9487832b4839791ef910619a3303b054/transformed/jetified-activity-compose-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b249564baff8b3e3307fa4ba92ae670b/transformed/jetified-activity-compose-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b249564baff8b3e3307fa4ba92ae670b/transformed/jetified-activity-compose-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b249564baff8b3e3307fa4ba92ae670b/transformed/jetified-activity-compose-1.4.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
