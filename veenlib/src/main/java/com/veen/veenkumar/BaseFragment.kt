@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope by CoroutineScope(
+abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope by MainScope(
     Dispatchers.Main
 ) {
 
