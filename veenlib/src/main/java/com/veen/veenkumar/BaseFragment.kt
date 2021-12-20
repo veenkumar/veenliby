@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-abstract class BaseFragment<B : ViewBinding> : DialogFragment() {
+abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope by MainScope() {
 
     protected lateinit var binding: B
         private set
