@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope by MainScope() {
+abstract class BaseFragment<B : ViewBinding> : DialogFragment() {
 
     protected lateinit var binding: B
         private set
@@ -28,10 +28,5 @@ abstract class BaseFragment<B : ViewBinding> : DialogFragment(), CoroutineScope 
         binding = bindingInflater.invoke(inflater, container, false)
         
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        coroutineContext[Job]?.cancel()
-        super.onDestroyView()
     }
 }
